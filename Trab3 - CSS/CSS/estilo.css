@@ -5,7 +5,7 @@ fieldset {
     background-color: rgb(210, 210, 210);
 }
 legend {
-    color: crimson;
+    color: rgb(169, 5, 5);
     font-weight: bold;
 }
 p {
@@ -47,6 +47,6 @@ button {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.name_imput { /*Digitou errado o input e teve que deixar errado mesmo, melhor corrigir aqui do que lá*/
+.name_imput { /*Digitou errado o input e teve que deixar errado mesmo, melhor corrigir aqui do que*/
     width: 50%;
 }
