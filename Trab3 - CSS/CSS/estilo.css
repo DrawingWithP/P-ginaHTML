@@ -1,3 +1,52 @@
+body {
+    background: rgb(231, 231, 231);
+}
 fieldset {
-    background: lightgray;
+    background-color: rgb(210, 210, 210);
+}
+legend {
+    color: crimson;
+    font-weight: bold;
+}
+p {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    position: absolute;
+}
+.name-redundant {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    position: absolute;
+}
+h1 {
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(134, 3, 3);
+    color: white;
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+button {
+    background-color: rgb(221, 2, 2);
+    color:aliceblue;
+    border: 0;
+    border-radius: 8px;
+}
+.main {
+    background-color: rgb(255, 255, 255);
+    padding:20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.name_imput { /*Digitou errado o input e teve que deixar errado mesmo, melhor corrigir aqui do que lá*/
+    width: 50%;
 }

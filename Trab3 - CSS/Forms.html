@@ -4,38 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de usuário</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="CSS/estilo.css">
 </head>
 <body>
+    <h1>CADASTRO DE CLIENTE</h1>
     <form
         action="/cadastro"
         method="POST"
         >
+        <div class = "main">
     <fieldset>
-        <legend>Nome</legend>
-        <label for="nome">Nome Completo</label>
+        <legend>Nome Completo</legend>
+        <label for="nome" class="name-redundant">Nome Completo</label>
         <input type="text" 
         id="nome" 
         name="nome" 
         aria-describedby="dica-nome"
-        required>
+        required
+        class = "name_imput">
         <p id="dica-nome">Insira seu nome completo</p>
     </fieldset>
     <fieldset>
         <legend>Endereço de E-mail</legend>
-        <label for="email">E-mail</label>
+        <label for="email" class="name-redundant">Endereço de E-mail</label>
         <input type="email" 
         id="email" 
         name="email" 
         placeholder="Nome@email.com"
         aria-describedby="dica-email"
-        required>
+        required
+        class = "name_imput">
         <p id="dica-email">Insira seu email, com prefixo, @ e complemento do Email&#40;Gmail, Hotmail, Outlook, etc.&#41;</p>
         
     </fieldset>
     <fieldset>
         <legend>CPF</legend>
-        <label for="cpf">CPF</label>
+        <label for="cpf" class="name-redundant">CPF</label>
         <input type="text" 
         inputmode="numeric"
         id="cpf" 
@@ -44,19 +48,20 @@
         pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
         title="Digite o CPF em formato: 000.000.000-00" 
         aria-describedby="dica-cpf"
-        required >
+        required
+        class="name_imput">
         <p id="dica-cpf">Insira seu CPF, usando somente números, numa sequência de 3 digitos, ponto, 3 digitos, ponto, 3 digitos, hífen e mais 2 digitos</p>   
     </fieldset>
     <fieldset>
         <legend>Data de Nascimento</legend>
-        <label for="nascimento">Data de Nascimento</label>
+        <label for="nascimento" class="name-redundant">Data de Nascimento</label>
         <input type="date" 
         id="nascimento" 
         name="nascimento" required>
     </fieldset>
     <fieldset>
         <legend>Curso</legend>
-        <label for="curso">Curso</label>
+        <label for="curso" class="name-redundant">Curso</label>
         <select id="curso"
         name="curso" required>
         <option value="">Selecione...</option>
@@ -102,6 +107,8 @@
         required>
         <label for="termos">Aceitar Termos e Condições</label>
     </fieldset>
+    </div>
+    <br>
     <button type="submit">Cadastrar</button>
     </form>
 </body>
