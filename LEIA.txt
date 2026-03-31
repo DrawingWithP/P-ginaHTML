@@ -1,0 +1,10 @@
+Todos os códigos (até o momento da escrita), estão funcionando devidamente, checados no W3C e no WAVE
+Entretanto, há algum erro desconhecido que não permite a execução direta pelo Run do VsCode
+Caso vá abrir um arquivo, entre nos documentos do computador;
+    Vá em este computador;
+    Abra a pasta usúarios
+    Encontre o seu login
+    Abra a pasta P-ginaHTML
+    Abra a pasta do trabalho desejado
+    Execute o .html do trabalho
+Assim, o html abrirá normalmente, sem problemas e validado
