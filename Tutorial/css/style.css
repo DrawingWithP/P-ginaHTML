@@ -1,0 +1,276 @@
+/* =============================================
+ style.css Portfolio Pessoal
+ Ibmec BH Desenvolvimento Web 2026.1
+ Preencha as lacunas indicadas em cada passo.
+ ============================================= */
+
+/* PASSO 1 Box model e variaveis */
+*, *::before, *::after {
+ box-sizing: auto ; /* 1 valor que inclui padding e border na largura */
+ margin: 0;
+ padding: 0;
+}
+:root {
+ --cor-primaria: rgb(81, 81, 241) ; /* 2 cor principal do portfolio (hex) */
+ --cor-destaque: rgb(235, 235, 235) ; /* 3 cor de acento, contraste WCAG AA */
+ --cor-texto: #333333;
+ --cor-fundo: #f4f4f4;
+ --fonte-base: 'Segoe UI', Tahoma, sans-serif;
+ --espacamento: 1.5rem;
+}
+body {
+ font-family: var(--fonte-base);
+ background-color: rgb(145, 145, 245) ; /* 4 referencie a variavel de fundo */
+ color: var(--cor-texto);
+ line-height: 1.6;
+}
+
+/*Responda: Qual e o valor correto para a lacuna 1?
+    Auto, para que ele se ajuste diretamente com o tamanho da página
+Responda: Quais cores voce escolheu (lacunas 2 e 3)? Justifique o contraste.
+    Azul e branco, pois são cores distintas que se contrastam bem
+Responda: Na lacuna 4, qual e a sintaxe correta para referenciar uma variavel CSS?
+    Dois hífens e o nome da váriavel (sem espaços). No uso, insira em var()*/
+
+/* PASSO 2 Tipografia e cores base */
+h2 {
+ font-size: 1.6rem ; /* 1 entre 1.4rem e 1.8rem */
+ color: var(--cor-primaria);
+ margin-bottom: var(--espacamento);
+}
+/* Especificidade: (0,1,0) classe .descricao
+ Mais especifica que p (0,0,1), portanto vence para <p class='descricao'> */
+.descricao {
+ font-size: 1.1rem;
+ max-width: 75ch ; /* 2 limite legivel: entre 60ch e 75ch */
+}
+/* Combinador filho direto: apenas <ul> filho direto de <nav> */
+/* Especificidade: (0,0,2) dois elementos */
+nav > ul {
+ list-style: none ; /* 3 remove os marcadores da lista */
+}
+/* Especificidade: (0,1,0) */
+.card-habilidade {
+ padding: 0.4rem 0.9rem;
+ border-radius: 4px;
+ background-color: var(--cor-primaria) ; /* 4 use var(--cor-primaria) */
+ color: #ffffff;
+ font-size: 0.9rem;
+}
+
+/*Responda: Qual e o tamanho de fonte que você escolheu para h2 (lacuna 1) e por que esse valor?
+    1.6rem (com margem de erro de 0.2rem) é o ideal para não quebrar a hierarquia de títulos, visto que H1 é maior que H2 na hierarquia, visualmente, não faz sentido h2 ser maior
+Responda: O que significa max-width: 65ch? Por que limitar a largura do texto melhora a leitura?
+    Max-width é a largura do texto, e 65ch indica que cabem 65 caracteres do mesmo tamanho do glifo 0.
+    É importante limitar a largura do texto para suavizar e não fadigar a leitura
+Responda: Se um <p> tiver ao mesmo tempo o seletor p e a classe .descricao aplicados, qual regra vence? Calcule a especificidade dos dois seletores.
+    Os seletor ID com especificidade (1,0,0) sempre vencerá classes (0,1,0) e elementos (0,0,1), a não ser que haja um !important em especificidades menores*/
+
+/* PASSO 3 Cabecalho e Box Model */
+/* === FLEXBOX: cabecalho === */
+header {
+ background-color: var(--cor-primaria);
+ color: #ffffff;
+ padding: 1rem 2rem ; /* 1 vertical e horizontal, ex.: 1rem 2rem */
+ border-bottom: 2px solid rgb(239, 239, 82) ; /* 2 largura, estilo e cor de destaque */
+}
+/* Especificidade: (0,0,2) dois elementos */
+header h1 {
+ font-size: 1.6rem;
+ margin-bottom: 0.2rem;
+}
+/* Especificidade: (0,0,2) dois elementos */
+main section {
+ padding: 2rem ; /* 3 respiro interno, entre 2rem e 3rem */
+ margin-bottom: 1rem ; /* 4 separacao entre secoes, entre 1rem e 2rem */
+}
+footer {
+ background-color: var(--cor-primaria);
+ color: #ffffff;
+ text-align: center;
+ padding: 2rem ; /* 5 simetrico, ex.: 1.5rem */
+ margin-top: 2rem;
+}
+
+/*Responda: Qual a diferença pratica entre padding e margin no header? Descreva com suas próprias palavras.
+    No header, é ideal usar padding, pois margin distanciaria o header das bordas da página. Padding criaria essa distancia internamente na box
+Responda: Se você declarar padding: 1rem 2rem, quantos valores são usados e o que cada um controla?
+    Ambos os valore são usados, com o primeiro para parte inferior e superior, e a segunda para os lados*/
+
+
+/* PASSO 4 Flexbox na navegacao */
+/* Especificidade: (0,0,1) elemento header */
+header {
+ display: flex ; /* 1 ativa o flex container */
+ justify-content: space-between ; /* 2 logo a esquerda, nav a direita */
+ align-items: flex-end ; /* 3 centralizacao vertical */
+}
+/* Especificidade: (1,0,0) ID nav-lista */
+#nav-lista {
+ display: flex;
+ gap: 1rem; /* 4 espaco entre os links, ex.: 1.5rem */
+ list-style: none;
+}
+#nav-lista a {
+ color: #ffffff;
+ text-decoration: none;
+ font-weight: 600;
+}
+
+/*Responda: Qual valor de justify-content coloca logo e nav nas extremidades opostas?
+    O melhor valor é o Space-between, que cria um espaço entre os elementos
+Responda: Qual a diferença entre align-items: center e justify-content: center? Em qual eixo cada um atua?
+    Justify-content atua na horizontal, enquanto o align-items atua na vertical
+Responda: Por que o seletor #nav-lista tem especificidade (1,0,0) e não (0,1,0)?
+    Pois ele é definido como um ID, e não como uma classe, sendo superior*/
+
+/* PASSO 5 Flexbox nas habilidades */
+.lista-habilidades {
+ display: flex;
+ flex-wrap: wrap ; /* 1 permite quebra de linha */
+ gap: 0.75rem;
+ list-style: none;
+ padding: 0;
+}
+.card-habilidade {
+ padding: 0.4rem 0.9rem;
+ border-radius: 4px;
+ background-color: var(--cor-primaria);
+ color: #ffffff;
+ font-size: 0.9rem;
+ flex: 1;
+ text-align: center; 
+}
+
+/*Responda: Qual e a diferença de comportamento entre flex-wrap: nowrap e flex-wrap: wrap?
+Descreva o que acontece com os itens em cada caso.
+    A diferença entre wrap e nowrap é a quebra de linha. Quando a página é reduzida, wrap permite a quebra de linha, e passa o elemento, caso não haja espaço, para baixo, diferente do nowrap
+Responda: Se você quiser que os cards de habilidade tenham todos a mesma largura e ocupem o
+espaço disponível igualmente, qual propriedade usaria nos itens (não no container)?
+    Flex, pois ele, da forma aplicada, aplicará flex-grow e flex-shrink simultaneamente, até a largura indicada*/
+
+/* PASSO 6 CSS Grid na grade de projetos */
+.grade-projetos {
+ display: grid ; /* 1 ativa o grid */
+ grid-template-columns: repeat(4, 1fr) ; /* 2 3 colunas iguais com fr */
+ gap: 0.5rem ; /* 3 espaco entre os cards */
+}
+
+/*Responda: Qual a diferença entre repeat(3, 1fr) e repeat(3, 300px)? Em qual situação cada um e mais adequado?
+    Fr é mais adequado que px, pois se adapta a tela, diminuindo proporcionalmente, diferente de px que seguiria os 900 pixel de maneira a fazer quadros vazarem.
+Responda: Se você quisesse que o primeiro card ocupasse duas colunas, qual propriedade e valor usaria no .card-projeto:first-child?
+    Usando Span em Grid-column, que faz ele ocupar mais espaços na grade*/
+
+/* PASSO 7 Cards de projeto */
+.card-projeto {
+ background-color: #ffffff;
+ border: 1px solid #dddddd;
+ border-radius: 8px ; /* 1 entre 6px e 12px */
+ padding: 2rem ; /* 2 espaco interno confortavel */
+}
+/* Especificidade: (0,1,1) classe dentro de classe */
+.card-projeto h3 {
+ font-size: 1.1rem;
+ color: var(--cor-primaria);
+ margin-bottom: 0.5rem;
+}
+/* Especificidade: (0,1,1) */
+.card-projeto p {
+ font-size: 0.95rem;
+ color: rgb(105, 105, 105) ; /* 3 tom de cinza para corpo do texto, ex.: #666666 */
+ line-height: 1.5;
+}
+
+/*Responda: Por que .card-projeto h3 tem especificidade (0,1,1) e não (0,0,1)?
+    Pois além de definir uma classe, ele também igualmente define um elemento
+Responda: Qual o efeito visual de usar border-radius nos cards? Como isso afeta a percepção do usuário?
+    Ele arredonda as bordas. Bordas mais arredondadas geram um clima mais agradável ao design comparada a bordas mais quadradas*/
+
+/* PASSO 8 Pseudo-classe :hover */
+.card-projeto {
+ background-color: #ffffff;
+ border: 1px solid #dddddd;
+ border-radius: 8px;
+ padding: 1.5rem;
+ transition: 0.2s;/* 1 propriedade, duracao e funcao, ex.: box-shadow 0.2s
+ease */
+}
+/* Especificidade: (0,1,1) classe + pseudo-classe */
+.card-projeto:hover {
+ box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4) ; /* 2 sombra suave, ex.: 0 4px 12px rgba(0,0,0,0.12) */
+ border-color: var(--cor-primaria) ; /* 3 use var(--cor-primaria) */
+ border: 2px;
+ background-color: var(--cor-primaria);
+ transition: 0.2s;
+}
+.card-projeto:hover h3 {
+    color: white;
+}
+.card-projeto:hover p { 
+    color: rgb(218, 218, 218);  
+}
+/* Hover nos links de navegacao */
+#nav-lista a:hover {
+ color: var(--cor-destaque); /* 4 use var(--cor-destaque) */
+ text-decoration: underline;
+}
+
+/*Responda: Por que a transition deve ser declarada no estado padrão e não no :hover?
+    Pois assim a transição ocorre na ida e na volta. Se fosse apenas no hover, ocorreria apenas na ida
+Responda: Qual a especificidade de .card-projeto:hover? Escreva no formato (ID, classes,elementos).
+    Como é para uma classe, e o hover tem valor (0,1,0). logo, nesse exemplo, o valor é: (0,2,0)
+Responda: O que acontece com a transição se você declarar transition apenas no :hover?
+    A transição será feita assim que houver hover, porém, quando tirada, não haverá mais transição, desaparecendo imediatamente na "volta"*/
+/* PASSO 9 Pseudo-classe :focus-visible */
+
+/* PASSO 10 Pseudo-classe :nth-child */
+a:focus-visible,
+button:focus-visible {
+ outline: 2px solid #ffffff ; /* 1 largura, estilo e cor visivel, ex.: 3px solid #FFCC00*/
+ outline-offset: 3px; /* 2 distancia entre o outline e a borda do elemento*/
+}
+/* Cards tambem precisam ser focaveis se forem interativos */
+.card-habilidade:focus-visible {
+ outline: 2px solid var(--cor-destaque);
+ outline-offset: 3px;
+}
+
+/*Responda: Qual a diferença entre :focus e :focus-visible? Em qual situação cada um se ativa?
+    Focus ativa não só em tab, mas também no clique, diferente do focus-visible, que ative somente na navegação tab
+Responda: Por que WCAG 2.2 exige foco visível? Qual grupo de usuários mais depende desse recurso?
+    Pois isso afeta usuários que tem dificuldade em usar o mouse, sendo assim, uma visualização ideal, torna a experiência desse usuário melhor e ideal
+Responda: O que acontece de errado se você usar outline: none sem repor nenhum estilo de foco?
+    O tab funciona, mas não há nenhum estimulo visual para tal*/
+
+/* PASSO 11 Formulario de contato */
+/* Especificidade: (0,1,1) classe + pseudo-classe */
+.card-projeto:nth-child(odd ) { /* 1 selecione impares */
+ background-color: rgb(238, 238, 238) ; /* 2 cor levemente diferente do branco */
+}
+.card-projeto:nth-child(odd ):hover { /* 1 selecione impares */
+ background-color: rgb(81, 116, 241) ; /* 2 cor levemente diferente do branco */
+}
+.card-projeto:nth-child(odd ):hover h3 {
+    color: #f3f3f3;
+}
+.card-projeto:nth-child(odd ):hover p { 
+    color: rgb(255, 255, 255);
+}
+/* Estiliza o primeiro item da lista de contato de forma diferente */
+.lista-contato li:nth-child() {
+ font-weight: 4px ; /* 3 valor numerico de negrito */
+ color: white;
+}
+/* Links de navegacao pares recebem espacamento extra */
+#nav-lista li:nth-child(even) {
+ margin-left: 0; /* 4 pequeno espaco adicional */ 
+}
+
+/*Responda: Qual e a diferença entre :nth-child(odd) e :nth-child(2n+1)? Eles selecionam os mesmos elementos?
+    Eles afetam números impares, sendo "odd" um atalho para 2n+1
+Responda: Como você escreveria um seletor :nth-child para selecionar apenas o terceiro e o sexto elemento de uma lista?
+    Evidenciaria 3 e 6 em :nth-child, pois, não há uma forma eficaz de criar uma formula que suprima apenas 2 elementos
+Responda: Se você quiser selecionar apenas o último item de uma lista sem saber quantos itens ha, qual pseudo-classe usaria no lugar de :nth-child?
+    :last-child*/
+
+/* PASSO 12 Estados :valid e :invalid */
