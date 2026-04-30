@@ -1,0 +1,5 @@
+2-4:
+a: 5 colunas
+b: 2 colunas, com uma linha tendo apenas um card
+c: São concervadas duas linhas, porém, as mais a direita são cortadas
+
