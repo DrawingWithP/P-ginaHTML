@@ -3,3 +3,16 @@ a: 5 colunas
 b: 2 colunas, com uma linha tendo apenas um card
 c: São concervadas duas linhas, porém, as mais a direita são cortadas
 
+3-4:
+a: Enquanto Justify-content leva em conta todos os elementos filhos, Justify-self leva em conta apenas um.
+b: Align-items opera apenas nos itens de sua linha, enquanto Align-content atua em diversas linhas, distribuindo espaço entre os elementos
+
+4-4:
+Além de aproveitar a mesma nomenclatura, definir apenas o grid-template-columns não explicitaria que destaque e novidades deixaram de ocupam a mesma linha, sendo necessário reescrever o grid-template-areas para tal efeito
+
+Rev. Final:
+1- Os números negativos são mais robustos de usar em grid-column, pois eles preencherão toda a tela, sem que especifique outros elemetos/filhos, facilitando o trabalho sem muitos reajustes
+2- Auto-fill cria os cards, mantendo seu tamanho baseado em seus elementos, deixando o espaço sobrassalente (se houver), em branco. Já em auto-fit, os elementos farão o que puderem para ocupar toda a largura disponível, reduzindo o trabalho
+3- Gera um erro, em que o navegador desconsidera o grid-template-areas e leva em conta para todos os elementos o padrão de linhas e colunas
+4- O erro se dá pelos nomes postos no grid-template-areas e os declarados no grid-areas não combinarem. Para corrigir, ou o nome deve ser mudado para o que já está no grid-template-areas ou vice-versa.
+

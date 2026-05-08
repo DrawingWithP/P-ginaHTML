@@ -33,6 +33,9 @@ body {
 .categorias { grid-area: categorias; } 
 .rodape     { grid-area: rodape; }
 
+.card-cat:first-child {
+    grid-column: span 2;
+}
 .topo       { 
     background-color: #003366; 
     color: #FFCC00; 
@@ -51,8 +54,8 @@ body {
 .categorias { 
     background-color: #e8edf2; 
     padding: 20px;
-     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
     gap: 12px; 
     padding: 20px; 
     background-color: #e8edf2; 
@@ -73,4 +76,45 @@ body {
     font-size: 0.95rem; 
 }
 
-/*
+.topo {
+ /* mantenha o que ja existe e acrescente: */
+ display: grid; /* transforma o topo em um grid interno */
+ place-items: center; /* centraliza em ambos os eixos */
+ text-align: center;
+ min-height: 100px;
+}
+
+.destaque {
+ /* mantenha o que ja existe e acrescente: */
+ display: grid;
+ align-items: start; /* vertical: inicio */
+ justify-items: center; /* horizontal: centro */
+}
+.destaque .preco {
+ font-size: 1.5rem;
+ font-weight: bold;
+ color: #FFCC00; /* use a cor amarela do wireframe: #FFCC00 */
+ margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+ .pagina {
+ grid-template-columns: 1fr; /* uma coluna unica */
+ grid-template-areas:
+ "topo" /* topo */
+ "destaque" /* destaque */
+ "novidades" /* novidades */
+ "categorias" /* categorias */
+ "rodape"; /* rodape */
+ }
+ /* Ajuste os cards de categoria para mobile */
+ .categorias {
+ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+ }
+ /* Desfaca o span 2 do primeiro card em telas pequenas */
+ .card-cat:first-child {
+ grid-column: span 1;
+ }
+}
+
+
